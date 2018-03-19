@@ -94,7 +94,7 @@ def error(bot, update, error):
 
 def main():
 
-    updater = Updater("512558928:AAGCNc_LmqDuvWLo67xI7-AfgEpil7MpRTU")
+    updater = Updater("TOKEN")
 
     dp = updater.dispatcher
 
