@@ -29,20 +29,21 @@ def options(bot, update):
             [InlineKeyboardButton("TESTE3", callback_data='2'), InlineKeyboardButton("TESTE4", callback_data='4')]]
 
         bot.send_message(chat_id=update.message.chat_id, text="...saindo do...", reply_markup=ReplyKeyboardRemove())
-        return LOCALS
+        return LOCALSAI
 
     if query == '1':
         keyboard = [[InlineKeyboardButton("TESTE1", callback_data='0'), InlineKeyboardButton("TESTE2", callback_data='1')],
             [InlineKeyboardButton("TESTE3", callback_data='2'), InlineKeyboardButton("TESTE4", callback_data='4')]]
 
         bot.send_message(chat_id=update.message.chat_id, text="...chegando no...", reply_markup=ReplyKeyboardRemove())
-        return LOCALC
+        return LOCALCHE
 
     else:
         bot.send_message(chat_id=update.message.chat_id, text="Estou parado no DCE! by %s" % user.first_name, reply_markup=ReplyKeyboardRemove())
         logger.info("User %s parado no DCE" % user.first_name)
         return
 
+#Para ser chamado quando o botão "Saindo" é precionado, criando um novo menu / It is to be a new menu when "Saindo" is pressed
 def localsai(bot, update):
     query = update.callback_query
     user = update.message.from_user
@@ -62,6 +63,7 @@ def localsai(bot, update):
 
     return
 
+#Para ser chamado quando o botão "chegando" é precionado, criando um novo menu / It is to be a new menu when "Chegando" is pressed 
 def localche(bot, update):
     query = update.callback_query
     user = update.message.from_user
@@ -97,6 +99,8 @@ def main():
     updater = Updater("512558928:AAGCNc_LmqDuvWLo67xI7-AfgEpil7MpRTU")
 
     dp = updater.dispatcher
+
+    #Ainda não to entendo como usar o QueryHandler / Stil don't undestanding how to use QueryHandler
 
     conv_handler = ConversationHandler(
         entry_points = [CommandHandler('b2', b2)],
